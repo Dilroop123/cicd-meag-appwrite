@@ -14,11 +14,11 @@ function Main() {
     const router = createBrowserRouter([
 
         {
-            path: '/',
+            path: '/cicd-meag-appwrite/',
             element: <Megablock />,
             children: [
                 {
-                    path: '/',
+                    path: '/cicd-meag-appwrite/',
                     element: <Home />
                 },
                 {
