@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { Button, Container } from "../components";
+import { Button } from "../components";
 import parse from "html-react-parser";
 import { useSelector } from "react-redux";
 import service from "../appwrite/conf";
 
 export default function Post() {
-    const [post, setPost] = useState(null);
+    const [post, setPost] = useState<any>({});
     const { slug } = useParams();
     console.log(slug);
 

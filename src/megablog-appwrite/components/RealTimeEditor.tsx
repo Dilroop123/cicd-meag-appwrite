@@ -1,5 +1,5 @@
 import { Editor } from '@tinymce/tinymce-react'
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 
 function RealTimeEditor({ label, onChange, value }: any) {
     const editorRef = useRef(null);

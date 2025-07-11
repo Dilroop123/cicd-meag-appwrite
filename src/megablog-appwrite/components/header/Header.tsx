@@ -1,8 +1,7 @@
-import React from 'react'
 import './header.css';
-import { Container, LogoutBtn } from '../index';
+import { LogoutBtn } from '../index';
 import { useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Header() {
 

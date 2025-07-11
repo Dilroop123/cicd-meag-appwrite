@@ -1,7 +1,3 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-
-
 function Footer() {
     return (
         <div style={{ display: 'flex', borderTop: '1px solid rgba(0, 0, 0, 0.25)', justifyContent: 'space-between', marginTop: '15px' }}>

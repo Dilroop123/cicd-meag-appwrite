@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Container, PostCard } from '../components'
+import {  PostCard } from '../components'
 import service from '../appwrite/conf';
 import { useSelector } from 'react-redux';
 

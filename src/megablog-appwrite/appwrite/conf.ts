@@ -138,9 +138,9 @@ class Service {
         }
     }
 
-    async deleteStorageImage(fileId) {
+    async deleteStorageImage(fileId: any) {
         try {
-            const result = await this.bucket.deleteFile(
+            return await this.bucket.deleteFile(
                 config?.appwriteBucketId,// bucketId
                 fileId// fileId
             );

@@ -21,11 +21,8 @@ function SignUp() {
     const {
         register,
         handleSubmit,
-        watch,
         formState: { errors },
     } = useForm<Inputs>()
-
-    // console.log(watch("email")) 
 
     const SignUpUser = async (data: any) => {
         const { email, password, name } = data;

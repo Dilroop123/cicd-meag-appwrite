@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Input from '../Input'
 import Select from '../Select'
@@ -20,7 +20,6 @@ function PostForm({ post }: any) {
     const {
         register,
         handleSubmit,
-        formState: { errors },
     } = useForm<Post>({
         defaultValues: {
             title: post?.title || '',
