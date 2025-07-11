@@ -1,17 +1,76 @@
-import { StrictMode } from 'react'
+import React from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Home from './pages/HomePage';
+import AuthLayout from './components/AuthLayout';
+import { Login, SignUp } from './components';
+import AllPosts from './pages/AllPost';
+import AddPost from './pages/AddPost';
+import EditPost from './pages/EditPost';
+import Post from './pages/Post';
+import App from './App';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 
+const router = createBrowserRouter([
 
-import { Provider } from 'react-redux'
-import { store } from './megablog-appwrite/redux/store.ts'
+  {
+    path: '/',
+    element: <App />,
+    children: [
+      {
+        path: '/',
+        element: <Home />
+      },
+      {
+        path: '/login',
+        element: (
+          <Login />
+        )
+      },
+      {
+        path: "/signup",
+        element: (
+          <SignUp />
+        ),
+      },
+      {
+        path: "/all-posts",
+        element: (
+          <AuthLayout>
+            <AllPosts />
+          </AuthLayout>
+        ),
+      },
+      {
+        path: "/add-post",
+        element: (
+          <AuthLayout>
+            <AddPost />
+          </AuthLayout>
+        ),
+      },
+      {
+        path: "/edit-post/:slug",
+        element: (
+          <AuthLayout>
+            <EditPost />
+          </AuthLayout>
+        ),
+      },
+      {
+        path: "/post/:slug",
+        element: <Post />,
+      },
+    ]
+  }
+])
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+  <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <Home />
+      {/* <RouterProvider router={router} /> */}
     </Provider>
-
-  </StrictMode>,
+  </React.StrictMode>,
 )

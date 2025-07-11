@@ -1,16 +1,18 @@
-import './App.css'
-import Main from './megablog-appwrite/Main';
+import { Header } from './components/index.ts';
+import { Outlet } from 'react-router-dom'
+import Footer from './components/Footer.tsx';
 
+function App() {
 
-
-const App = () => {
-  console.log(import.meta.env.VITE_APPWRITE_ENDPOINT);
-
-  return (
-    <div>
-      <Main />
-    </div>
-  )
+    return (
+        <div style={{ margin: '15px 200px', boxSizing: 'border-box' }}>
+            <Header />
+            <Outlet />
+            {/* Outlet is used so that header and footer will
+            remain static on all the pages and inside body will keep on changing*/}
+            <Footer />
+        </div>
+    )
 }
 
-export default App;
+export default App
