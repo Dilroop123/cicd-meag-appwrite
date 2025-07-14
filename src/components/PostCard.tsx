@@ -25,12 +25,8 @@ function PostCard({ $id, title, featuredImage, content, isGrid = false }: any) {
                     <div>
                         <span className="ellipsis_3_line" style={{ fontSize: isGrid ? '15px' : '17px', lineHeight: isGrid ? '18px' : '22px' }}>{parse(content)}</span>
                     </div>
-
-
                     <div style={{ borderBottom: '1px solid rgba(0, 0, 0, 0.25)', marginTop: isGrid ? '25px' : '20px' }} />
                 </div>
-
-
             </div>
         </Link>
     )
