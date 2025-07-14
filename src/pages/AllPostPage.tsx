@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { PostCard } from '../components'
+import { Container, PostCard } from '../components'
 import service from '../appwrite/conf'
 import AuthLayout from '../components/AuthLayout'
 
@@ -15,17 +15,20 @@ function AllPosts() {
 
     return (
         <AuthLayout>
-            <div style={{ width: '100%', padding: '10px' }}>
+            <Container>
+                <div style={{ width: '100%', padding: '10px' }}>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'auto auto', gap: '20px' }}>
-                    {posts.map((post: any) => (
-                        <div key={post?.$id} >
-                            <PostCard {...post} isGrid={true} />
-                        </div>
-                    ))}
+                    <div style={{ display: 'grid', gridTemplateColumns: 'auto auto', gap: '20px' }}>
+                        {posts.map((post: any) => (
+                            <div key={post?.$id} >
+                                <PostCard {...post} isGrid={true} />
+                            </div>
+                        ))}
+                    </div>
+
                 </div>
+            </Container>
 
-            </div>
         </AuthLayout>
 
     )

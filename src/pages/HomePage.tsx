@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import {  PostCard } from '../components'
+import { Container, PostCard } from '../components'
 import service from '../appwrite/conf';
 import { useSelector } from 'react-redux';
 
@@ -43,25 +43,28 @@ function Home() {
         )
     }
     return (
-        <div style={{ position: 'relative' }}>
-            <img src={coverImage} width='100%' height='450px' />
+        <Container>
+            <div style={{ position: 'relative' }}>
+                <img src={coverImage} width='100%' height='450px' />
 
-            <div style={{ border: '5px solid black', padding: '20px', width: 'max-content', position: 'absolute', top: -70, left: '34%' }}>
-                <p style={{ fontSize: '33px', letterSpacing: '8px', fontWeight: 'bold' }}>SALT & PEPPER</p>
-            </div>
-            <div style={{ textAlign: 'center', margin: '25px 0px' }}>
-                <p style={{ fontSize: '20px', letterSpacing: '7px', color: 'black', fontWeight: 'bold', alignSelf: 'center' }}>FOOD BLOG</p>
-            </div>
+                <div style={{ border: '5px solid black', padding: '20px', width: 'max-content', position: 'absolute', top: -70, left: '34%' }}>
+                    <p style={{ fontSize: '33px', letterSpacing: '8px', fontWeight: 'bold' }}>SALT & PEPPER</p>
+                </div>
+                <div style={{ textAlign: 'center', margin: '25px 0px' }}>
+                    <p style={{ fontSize: '20px', letterSpacing: '7px', color: 'black', fontWeight: 'bold', alignSelf: 'center' }}>FOOD BLOG</p>
+                </div>
 
-            <div>
-                {posts.map((post: any) => (
-                    <div key={post.$id}>
-                        <PostCard {...post} />
-                    </div>
-                ))}
-            </div>
+                <div>
+                    {posts.map((post: any) => (
+                        <div key={post.$id}>
+                            <PostCard {...post} />
+                        </div>
+                    ))}
+                </div>
 
-        </div>
+            </div>
+        </Container>
+
     )
 }
 
