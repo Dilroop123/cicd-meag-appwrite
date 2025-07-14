@@ -1,10 +1,11 @@
 {
   "name": "cicd-meag-appwrite",
-  "homepage": "https://Dilroop123.github.io/cicd-meag-appwrite",
+  "homepage": "https://Dilroop123.github.io/cicd-meag-appwrite/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "tsc -b && vite build",

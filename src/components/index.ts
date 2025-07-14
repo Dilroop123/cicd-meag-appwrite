@@ -1,4 +1,5 @@
 import Header from './header/Header';
+import Footer from './Footer';
 import Container from './container/Container';
 import LogoutBtn from './header/LogoutBtn';
 import Logo from './Logo';
@@ -12,6 +13,7 @@ import PostCard from './PostCard';
 
 export {
     Header,
+    Footer,
     Container,
     LogoutBtn,
     Logo,

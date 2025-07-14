@@ -5,10 +5,14 @@ import parse from "html-react-parser";
 import { useSelector } from "react-redux";
 import service from "../appwrite/conf";
 
-export default function Post() {
+export default function PostPage() {
+    console.log('in the post page');
+
     const [post, setPost] = useState<any>({});
     const { slug } = useParams();
     console.log(slug);
+    console.log(post);
+
 
     const navigate = useNavigate();
 
@@ -17,13 +21,15 @@ export default function Post() {
     const isAuthor = post && userData ? post?.userId === userData.$id : false;
 
     useEffect(() => {
+        console.log('in post');
+
         if (slug) {
             service.getBlog({ documentId: slug }).then((post) => {
                 if (post) setPost(post);
                 else navigate("/");
             });
         } else navigate("/");
-    }, [slug, navigate]);
+    }, []);
 
     const deletePost = () => {
         service.deleteBlog({ documentId: post.$id }).then((status) => {
@@ -41,17 +47,16 @@ export default function Post() {
         padding: '5px'
     }
 
-    return post ? (
+    return post?.featuredImage ? (
         <div>
             <div>
                 <img
-                    src={service.getFilePreview(post.featuredImage) + '&mode=admin'}
-                    alt={post.title}
+                    src={service.getFilePreview(post?.featuredImage) + '&mode=admin'}
+                    alt={post?.title}
                     height='450px'
                     width='100%'
                     className="rounded-xl"
                 />
-
                 {isAuthor && (
                     <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginRight: '20px' }}>
                         <Link to={`/edit-post/${post.$id}`}>
@@ -69,7 +74,7 @@ export default function Post() {
                 <h1>{post.title}</h1>
             </div>
             <div style={{ marginTop: '15px' }}>
-                {parse(post.content)}
+                {parse(post?.content)}
             </div>
         </div>
     ) : null;

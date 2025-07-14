@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
-import { Container, PostForm } from '../components'
+import { PostForm } from '../components'
 
 import { useNavigate, useParams } from 'react-router-dom';
 import service from '../appwrite/conf';
+import AuthLayout from '../components/AuthLayout';
 
 function EditPost() {
     const [post, setPosts] = useState({})
@@ -22,9 +23,9 @@ function EditPost() {
     }, [slug, navigate])
     return post ? (
         <div className='py-8'>
-            <Container>
+            <AuthLayout>
                 <PostForm post={post} />
-            </Container>
+            </AuthLayout>
         </div>
     ) : null
 }
