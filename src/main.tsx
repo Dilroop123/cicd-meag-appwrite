@@ -13,6 +13,8 @@ import Post from './pages/PostPage';
 // import App from './App';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
+import ThemeContextProvider from './context/ThemeContextProvider';
+import Sidebar from './components/sidebar/SideBar';
 
 
 // const router = createBrowserRouter([
@@ -73,19 +75,22 @@ createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>
       {/* <RouterProvider router={router} /> */}
-      <HashRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignUpPage />} />
-          <Route path="/all-posts" element={<AllPostPage />} />
-          <Route path="/add-post" element={<AddPostPage />} />
-          <Route path='/edit-post/:slug' element={<EditPostPage />} />
-          <Route path='/post/:slug' element={<Post />} />
-        </Routes>
-        <Footer />
-      </HashRouter>
+      <ThemeContextProvider>
+        <HashRouter>
+          <Header />
+          <Sidebar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignUpPage />} />
+            <Route path="/all-posts" element={<AllPostPage />} />
+            <Route path="/add-post" element={<AddPostPage />} />
+            <Route path='/edit-post/:slug' element={<EditPostPage />} />
+            <Route path='/post/:slug' element={<Post />} />
+          </Routes>
+          <Footer />
+        </HashRouter>
+      </ThemeContextProvider>
     </Provider>
   </React.StrictMode>,
 )

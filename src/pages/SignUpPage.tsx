@@ -1,9 +1,12 @@
-import { SignUp as SignUpComponent } from '../components'
+import { Container, SignUp as SignUpComponent } from '../components'
 
 function SignUpPage() {
   return (
     <div>
-      <SignUpComponent />
+      <Container>
+        <SignUpComponent />
+      </Container>
+
     </div>
   )
 }

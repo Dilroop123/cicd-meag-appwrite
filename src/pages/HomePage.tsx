@@ -9,7 +9,7 @@ import coverImage from '../assests/spicecover.jpg';
 const BlankComponent = ({ text }: { text: string }) => {
     return (
         <div style={{ border: '1px solid rgba(0, 0, 0, 0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '50px' }}>
-            <h1>
+            <h1 style={{ color: 'gray' }}>
                 {text}
             </h1>
         </div>
@@ -33,13 +33,19 @@ function Home() {
 
     if (IsAuthenticated === false) {
         return (
-            <BlankComponent text=' Login to read the posts' />
+            <Container>
+                <BlankComponent text=' Login to read the posts' />
+            </Container>
+
         )
     }
 
     if (posts.length === 0) {
         return (
-            <BlankComponent text=' Add posts to your Account' />
+            <Container>
+                <BlankComponent text=' Add posts to your Account' />
+            </Container>
+
         )
     }
     return (

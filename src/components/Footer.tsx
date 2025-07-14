@@ -1,9 +1,20 @@
+import { useContext } from "react";
+import { ThemeContext } from "../context/ThemeContextProvider";
+import { themeColor } from "../utils/color";
+
 function Footer() {
+    const context = useContext(ThemeContext);
+
+    if (!context) {
+        throw new Error('Header must be used within a ThemeContextProvider');
+    }
+    const { theme } = context;
+
     return (
-        <div style={{ display: 'flex', borderTop: '1px solid rgba(0, 0, 0, 0.25)', justifyContent: 'space-between', marginTop: '15px' }}>
+        <div style={{ backgroundColor: themeColor[theme as keyof typeof themeColor].background, display: 'flex', borderTop: '1px solid rgba(0, 0, 0, 0.25)', justifyContent: 'space-between', marginTop: '15px' }}>
             <div>
                 <div>
-                    <h3 style={{ margin: ' 20px 0px 15px 35px' }}>
+                    <h3 style={{ margin: ' 20px 0px 15px 35px', color: 'gray' }}>
                         Company
                     </h3>
                     <ul style={{ listStyle: 'none', fontSize: '15px', color: 'gray' }}>
@@ -25,7 +36,7 @@ function Footer() {
 
             <div>
                 <div>
-                    <h3 style={{ margin: ' 20px 0px 15px 35px' }}>
+                    <h3 style={{ margin: ' 20px 0px 15px 35px', color: 'gray' }}>
                         Support
                     </h3>
                     <ul style={{ listStyle: 'none', fontSize: '15px', color: 'gray' }}>
@@ -47,7 +58,7 @@ function Footer() {
 
             <div>
                 <div>
-                    <h3 style={{ margin: ' 20px 0px 15px 35px' }}>
+                    <h3 style={{ margin: ' 20px 0px 15px 35px', color: 'gray' }}>
                         Legals
                     </h3>
                     <ul style={{ listStyle: 'none', fontSize: '15px', color: 'gray' }}>
