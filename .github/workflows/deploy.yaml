@@ -1,5 +1,5 @@
 name: CI/CD for React
-'on':
+on:
   push:
     branches:
       - main
@@ -21,7 +21,7 @@ jobs:
       - name: Build project
         run: npm run build
       - name: Deploy project
-        run: JamesIves/github-pages-deploy-actions@4.1.0
+        uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
           branch: gh-pagees
           folder: build
