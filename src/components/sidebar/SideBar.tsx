@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import './sidebar.css';
+import './sideBar.css';
 import { ThemeContext } from '../../context/ThemeContextProvider';
 
 const Sidebar = () => {
